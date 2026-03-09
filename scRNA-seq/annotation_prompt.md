@@ -58,6 +58,31 @@
 | 2 | **疑似 Doublet** | - | Plp1/Mbp + Hexb/C1q 共高表达 | - | 建议后续质控剔除 |
 | ... | ... | ... | ... | ... | ... |
 
+## 第三部分：自动化提取 JSON 输出
+请将所有 Cluster 的最终注释结果打包成一个标准的 JSON 格式代码块，确保键名固定，便于下游 R/Python 脚本直接正则提取。请使用以下结构：
+    ```json
+    {
+    "annotations": [
+        {
+        "cluster": "0",
+        "level_1": "Microglia",
+        "level_2": "Homeostatic Microglia",
+        "key_markers": ["Tmem119", "P2ry12", "Cx3cr1"],
+        "confidence": "High",
+        "wheather_Doublet": "false"
+        },
+        {
+        "cluster": "1",
+        "level_1": "Doublet",
+        "level_2": "Doublet",
+        "key_markers": ["Plp1", "Hexb"],
+        "confidence": "Low",
+        "wheather_Doublet": "true"
+        }
+    ]
+    }
+    ```
+
 # 严格限制 (Constraints)
 - 严禁仅凭单一 Marker 下结论，必须基于**多 Marker 共表达网络**进行推断。
 - 对于线粒体基因、核糖体基因或广谱应激基因（如部分热休克蛋白），需谨慎解读，不作为核心注释依据。
