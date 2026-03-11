@@ -1,0 +1,11 @@
+# AI 模型服务商配置
+model_provider:
+  name: "Volcengine"
+  base_url: "https://ark.cn-beijing.volces.com/api/v3"
+  api_key_env: "ARK_API_KEY" 
+  model_id: "doubao-seed-2-0-pro-260215"
+  temperature: 0.1
+  timeout: 600
+  max_tokens: 88192  # 显著增加生成长度上限，防止报告截断
+  input_price: 3.2￥/Mtokens
+  output_price: 16￥/Mtokens

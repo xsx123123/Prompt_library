@@ -1,0 +1,11 @@
+{
+    "prompt_file": "./prompt/plant_annotation_prompt.md",
+    "csv_file": "./test/plant_marker_ann.csv",
+    "output_file": "AI_annotation_result.md",
+    "background": {
+        "species": "生菜",
+        "tissue": "茎尖",
+        "condition": "正常生长条件下"
+    },
+    "top_n": 30
+}
