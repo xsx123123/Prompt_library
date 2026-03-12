@@ -1,6 +1,0 @@
-2026-03-10 14:31:35 | INFO     | --- Task Started: Project=default_proj ---
-2026-03-10 14:31:35 | DEBUG    | Raw CSV columns: ['Unnamed: 0', 'p_val', 'avg_log2FC', 'pct.1', 'pct.2', 'p_val_adj', 'cluster', 'gene']
-2026-03-10 14:31:35 | DEBUG    | Columns kept for AI: ['cluster', 'gene', 'avg_log2FC', 'p_val_adj']
-2026-03-10 14:36:02 | INFO     | Usage Stats - Prompt: 40695, Completion: 12293, Total: 52988
-2026-03-10 14:36:02 | INFO     | Cost Breakdown - Input: ￥0.130224, Output: ￥0.196688, Total: ￥0.326912
-2026-03-10 14:36:02 | INFO     | Performance - Time: 266.59s, Speed: 46.11 tokens/s

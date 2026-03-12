@@ -1,7 +1,7 @@
 {
     "prompt_file": "./prompt/plant_annotation_prompt.md",
     "csv_file": "./test/plant_marker_ann.csv",
-    "output_file": "AI_annotation_result.md",
+    "output_file": "./test/AI_annotation_result.md",
     "background": {
         "species": "生菜",
         "tissue": "茎尖",

@@ -1,7 +1,7 @@
 {
     "prompt_file": "./prompt/mouse_human_annotation_prompt.md",
     "csv_file": "./test/mouse_top30_marker_gene.csv",
-    "output_file": "AI_mouse_annotation_result.md",
+    "output_file": "./test/AI_mouse_annotation_result.md",
     "background": {
         "species": "小鼠",
         "tissue": "中枢神经系统/脑组织",
