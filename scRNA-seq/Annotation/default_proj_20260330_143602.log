@@ -1,0 +1,51 @@
+2026-03-30 14:36:02 | INFO     | --- Task Started: Project=default_proj ---
+2026-03-30 14:36:02 | DEBUG    | Raw CSV columns: ['Unnamed: 0', 'p_val', 'avg_log2FC', 'pct.1', 'pct.2', 'p_val_adj', 'cluster', 'gene']
+2026-03-30 14:36:02 | DEBUG    | Columns kept for AI: ['cluster', 'gene', 'avg_log2FC', 'p_val_adj']
+2026-03-30 14:36:02 | ERROR    | API call to Volcengine failed
+Traceback (most recent call last):
+
+  File "/home/zj/zj_code_libarary/zj_Prompt_library/scRNA-seq/Annotation/./cluster_annotation.py", line 295, in <module>
+    main()
+    └ <function main at 0x7c472f21d1c0>
+
+  File "/home/zj/zj_code_libarary/zj_Prompt_library/scRNA-seq/Annotation/./cluster_annotation.py", line 258, in main
+    response, duration = annotator.annotate(system_prompt, bg_str, csv_data_str)
+                         │         │        │              │       └ 'cluster,gene,avg_log2FC,p_val_adj\n0,P2ry12,2.74501501683926,0.0\n0,Tmem119,2.63392176548826,0.0\n0,Cd83,2.26145614457109,0....
+                         │         │        │              └ '物种：小鼠。组织：中枢神经系统/脑组织。状态：包含炎症/稳态特征。'
+                         │         │        └ '# 角色 (Role)\n你是一位经验丰富的单细胞转录组分析（scRNA-seq）专家，深谙人类与小鼠数据的细胞类型注释，在免疫细胞、基质细胞、上皮细胞及组织特异性细胞群的 marker 判读上具有极高的专业水准。\n\n# 任务 (Task)\n...
+                         │         └ <function SingleCellAnnotator.annotate at 0x7c472f21cfe0>
+                         └ <__main__.SingleCellAnnotator object at 0x7c472f6da8a0>
+
+> File "/home/zj/zj_code_libarary/zj_Prompt_library/scRNA-seq/Annotation/./cluster_annotation.py", line 143, in annotate
+    response = self.client.chat.completions.create(
+               │    │      │    │           └ <function Completions.create at 0x7c472e81c540>
+               │    │      │    └ <openai.resources.chat.completions.completions.Completions object at 0x7c472f0d2cf0>
+               │    │      └ <openai.resources.chat.chat.Chat object at 0x7c472f4c9310>
+               │    └ <openai.OpenAI object at 0x7c472f670ad0>
+               └ <__main__.SingleCellAnnotator object at 0x7c472f6da8a0>
+
+  File "/home/zj/.pyenv/versions/prompt/lib/python3.12/site-packages/openai/_utils/_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           │     │       └ {'model': 'doubao-seed-2-0-pro-260215', 'messages': [{'role': 'system', 'content': '# 角色 (Role)\n你是一位经验丰富的单细胞转录组分析（scRNA-seq）...
+           │     └ (<openai.resources.chat.completions.completions.Completions object at 0x7c472f0d2cf0>,)
+           └ <function Completions.create at 0x7c472e81c400>
+  File "/home/zj/.pyenv/versions/prompt/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1211, in create
+    return self._post(
+           │    └ <bound method SyncAPIClient.post of <openai.OpenAI object at 0x7c472f670ad0>>
+           └ <openai.resources.chat.completions.completions.Completions object at 0x7c472f0d2cf0>
+  File "/home/zj/.pyenv/versions/prompt/lib/python3.12/site-packages/openai/_base_client.py", line 1297, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+           │    │          │    │       │        │            │                  └ openai.Stream[openai.types.chat.chat_completion_chunk.ChatCompletionChunk]
+           │    │          │    │       │        │            └ False
+           │    │          │    │       │        └ FinalRequestOptions(method='post', url='/chat/completions', params={}, headers=NOT_GIVEN, max_retries=NOT_GIVEN, timeout=600,...
+           │    │          │    │       └ <class 'openai.types.chat.chat_completion.ChatCompletion'>
+           │    │          │    └ <function SyncAPIClient.request at 0x7c472fa29620>
+           │    │          └ <openai.OpenAI object at 0x7c472f670ad0>
+           │    └ ~ResponseT
+           └ <function cast at 0x7c475b124e00>
+  File "/home/zj/.pyenv/versions/prompt/lib/python3.12/site-packages/openai/_base_client.py", line 1070, in request
+    raise self._make_status_error_from_response(err.response) from None
+          │    └ <function BaseClient._make_status_error_from_response at 0x7c472fa27d80>
+          └ <openai.OpenAI object at 0x7c472f670ad0>
+
+openai.AuthenticationError: Error code: 401 - {'error': {'code': 'AuthenticationError', 'message': "The API key doesn't exist. Request id: 021774852562788d05e5c3b12045884e5304df23f9a3a83d99df4", 'param': '', 'type': 'Unauthorized'}}

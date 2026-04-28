@@ -111,16 +111,16 @@
   "annotations": [
     {
       "cluster": "0",
-      "level_1": "Microglia(小胶质细胞)",
-      "level_2": "Homeostatic Microglia(稳态小胶质细胞)",
+      "level_1": "Microglia",
+      "level_2": "Homeostatic Microglia",
       "key_markers": ["Tmem119", "P2ry12", "Cx3cr1"],
       "confidence": "High",
       "is_doublet": false
     },
     {
       "cluster": "1",
-      "level_1": "Doublet(双细胞污染)",
-      "level_2": "Doublet(双细胞污染)",
+      "level_1": "Doublet",
+      "level_2": "Doublet",
       "key_markers": ["Plp1", "Hexb"],
       "confidence": "Low",
       "is_doublet": true
