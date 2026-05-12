@@ -32,6 +32,32 @@
 1. 物种；
 2. 组织来源；
 3. 样本状态。
+4. T 细胞专项确认 —— 仅在分析对象为 T 细胞或 T 细胞亚群时触发
+   若本次分析的对象为 T 细胞子集（如从整体单细胞图谱中拆分的 T cell subset），在正式分析前额外提供以下信息，以支持 CD4/CD8 谱系划分：
+
+   a) **CD4/CD8 谱系表达矩阵（核心）**：
+      - 请提供每个 Cluster 中 CD4、CD8A、CD8B 的平均表达量（avg_exp）或
+        表达细胞比例（pct.1），可直接粘贴 Seurat 的 DotPlot 数值或
+        AverageExpression 输出结果。
+      - 亦可直接说明哪些 Cluster 为 CD4+ 群体，哪些为 CD8+ 群体，
+        哪些为 CD4/CD8 双阴性（DN）或双阳性（DP）群体。
+
+   b) **为什么这很重要**：
+      - CD4+ T 细胞的核心谱系 marker（FOXP3、IL7R、CXCR5、GATA3、RORC 等）
+        与 CD8+ T 细胞（GZMB、PRF1、GNLY、CX3CR1 等）存在大量功能重叠或相似的
+        状态 marker（如耗竭标志 PDCD1、LAG3、HAVCR2 在两者中均可出现），
+        若不提前确定 CD4/CD8 归属，极易发生谱系误判。
+      - Tex（耗竭 T 细胞）、Trm（组织驻留 T 细胞）、Tem（效应记忆 T 细胞）
+        均可来自 CD4+ 或 CD8+ 谱系，谱系未知时只能给出模糊注释。
+
+   c) **可接受的输入格式（任选其一）**：
+      - 格式一：Cluster 级别的 CD4/CD8A/CD8B 表达 DotPlot 截图或数值表
+      - 格式二：文字描述，如 "Cluster 0/2/5/7 为 CD8+，Cluster 1/3/4/6 为 CD4+"
+      - 格式三：提供 FindMarkers 结果中包含 CD4、CD8A、CD8B 的行数据
+
+   若上述信息无法提供，分析将基于其他功能性 marker（如 FOXP3 for Treg、
+   GZMK/GZMB/PRF1 for cytotoxic lineage）推断谱系，但可信度将有所下降，
+   且 CD4/CD8 归属将标注为"推断"而非"确认"。
 如果缺失，请在正式分析前简短提醒我补充。
 
 # 分析工作流 (Workflow)
